@@ -3,7 +3,7 @@ name: Node.js CI/CD Pipeline
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build-and-deploy:
@@ -16,13 +16,13 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18' 
+        node-version: '18'
 
     - name: Install Dependencies
       run: npm install
 
     - name: Run Tests (Optional but Good Practice)
-      run: npm test 
+      run: npm test
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
@@ -58,5 +58,3 @@ jobs:
     #     kubectl rollout status deployment/my-node-app-deployment
     #     # Optional: Verify service IP/URL
     #     kubectl get service my-node-app-service
-    ```
-* **Commit and Push:** Commit this workflow file and push it to `main`. This should trigger your first GitHub Actions run. Monitor the `Actions` tab in your GitHub repository. Fix any errors!
