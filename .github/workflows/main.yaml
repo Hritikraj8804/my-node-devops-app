@@ -1,0 +1,62 @@
+name: Node.js CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18' 
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Tests (Optional but Good Practice)
+      run: npm test 
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and Push Docker Image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest # Your Docker image tag
+        # If you want versioned tags:
+        # tags: ${{ secrets.DOCKER_USERNAME }}/my-node-app:${{ github.sha }}
+
+    # --- Kubernetes Deployment (Optional, but demonstrate capability) ---
+    # This part requires a configured K8s cluster and access credentials.
+    # For a simple demo, you might just talk about this step rather than fully automating it.
+    # If you have a cluster and credentials configured as GitHub secrets:
+
+    # - name: Setup Kubeconfig (Example for GKE)
+    #   uses: google-github-actions/setup-gcloud@v1
+    #   with:
+    #     project_id: your-gcp-project-id
+    #     service_account_key: ${{ secrets.GCP_SA_KEY }}
+    #     export_default_credentials: true
+    # - run: gcloud container clusters get-credentials your-cluster-name --zone your-cluster-zone
+
+    # - name: Deploy to Kubernetes
+    #   run: |
+    #     kubectl apply -f k8s-deployment.yaml
+    #     kubectl rollout status deployment/my-node-app-deployment
+    #     # Optional: Verify service IP/URL
+    #     kubectl get service my-node-app-service
+    ```
+* **Commit and Push:** Commit this workflow file and push it to `main`. This should trigger your first GitHub Actions run. Monitor the `Actions` tab in your GitHub repository. Fix any errors!

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-node-app-deployment
+  labels: my-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-node-app
+  template:
+    metadata:
+      labels:
+        app: my-node-app
+    spec:
+      containers:
+      - name: my-node-app-container
+        image: hritikraj8804/my-node-app-image:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-node-app-service
+spec:
+  selector:
+    app: my-node-app
+  ports:
+    - protocol: TCP
+      port: 80 
+      targetPort: 3000 
+  type: LoadBalancer
