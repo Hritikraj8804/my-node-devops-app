@@ -35,26 +35,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest # Your Docker image tag
-        # If you want versioned tags:
-        # tags: ${{ secrets.DOCKER_USERNAME }}/my-node-app:${{ github.sha }}
-
-    # --- Kubernetes Deployment (Optional, but demonstrate capability) ---
-    # This part requires a configured K8s cluster and access credentials.
-    # For a simple demo, you might just talk about this step rather than fully automating it.
-    # If you have a cluster and credentials configured as GitHub secrets:
-
-    # - name: Setup Kubeconfig (Example for GKE)
-    #   uses: google-github-actions/setup-gcloud@v1
-    #   with:
-    #     project_id: your-gcp-project-id
-    #     service_account_key: ${{ secrets.GCP_SA_KEY }}
-    #     export_default_credentials: true
-    # - run: gcloud container clusters get-credentials your-cluster-name --zone your-cluster-zone
-
-    # - name: Deploy to Kubernetes
-    #   run: |
-    #     kubectl apply -f k8s-deployment.yaml
-    #     kubectl rollout status deployment/my-node-app-deployment
-    #     # Optional: Verify service IP/URL
-    #     kubectl get service my-node-app-service
+        tags: ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest
