@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: hritikraj8804/my-node-devops-app 
+    image: hritikraj8804/my-node-app 
 
     container_name: my-node-devops-app 
 
