@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Node DevOps App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🚀 My Node DevOps App</h1>
+
+    <p>
+        A simple Node.js application deployed using modern DevOps practices.
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            <h3>⚙️ Backend</h3>
+            <p>Node.js + Express</p>
+        </div>
+
+        <div class="card">
+            <h3>🐳 Containerized</h3>
+            <p>Docker Ready</p>
+        </div>
+
+        <div class="card">
+            <h3>☁️ Cloud</h3>
+            <p>AWS Deployment</p>
+        </div>
+
+        <div class="card">
+            <h3>🔄 CI/CD</h3>
+            <p>GitHub Actions</p>
+        </div>
+    </div>
+
+    <button onclick="showStatus()">Check Status</button>
+
+    <p id="status"></p>
+</div>
+
+<script>
+function showStatus() {
+    document.getElementById("status").innerHTML =
+        "✅ Application is running successfully!";
+}
+</script>
+
+</body>
+</html>

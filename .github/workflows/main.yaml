@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,3 +36,20 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest
+  
+  deploy-ec2:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Deploy to deploy ec2
+          uses: appleboy/ssh-action@v1.0.2
+          with: 
+            host: ${{ secrets.EC2_HOST }}
+            username: ${{ secrets.EC2_USER }}
+            password: ${{ secrets.EC2_PASS }}
+            script: 
+              cd /home/ubuntu/my-node-devops-app
+
+              docker compose down
+              docker compose pull
+              docker compose up -d --build
