@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/Hritikraj8804/my-node-devops-app.git'
-    targetRevision: argocd
+    targetRevision: main
     path: .
   destination:
     server: 'https://kubernetes.default.svc'
