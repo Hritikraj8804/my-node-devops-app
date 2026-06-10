@@ -18,10 +18,9 @@ spec:
         app: my-node-app
         version: v2
     
-    spec: 
+    spec:
       containers:
       - name: my-node-app
-        image: hritikraj8804/my-node-app:v2   
-
-      ports:
-      - containerPort: 3000 
+        image: hritikraj8804/my-node-app:v2
+        ports:
+        - containerPort: 3000
