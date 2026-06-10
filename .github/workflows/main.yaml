@@ -49,7 +49,7 @@ jobs:
             username: ${{ secrets.EC2_USER }}
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             script: |
-              cd /home/ubuntu/my-node-devops-app
+              cd /home/${{ secrets.EC2_USER }}/my-node-app
 
               docker compose down
               docker compose pull

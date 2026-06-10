@@ -4,7 +4,7 @@ services:
   app:
     image: hritikraj8804/my-node-app 
 
-    container_name: my-node-devops-app 
+    container_name: my-node-app 
 
     ports: 
     - "3000:3000"
