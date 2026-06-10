@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Dashboard - v1.0.0</title>
+    <title>DevOps Dashboard - v2.0.0</title>
     <!-- Import Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
 
 <div class="container">
     <header class="app-header">
-        <div class="badge">Version 1.0.0</div>
+        <div class="badge">Version 2.0.0</div>
         <h1>DevOps Dashboard</h1>
         <p class="subtitle">A containerized Node.js application deployed using modern GitOps & CI/CD workflows.</p>
     </header>
@@ -35,15 +35,15 @@
         </div>
 
         <div class="card">
-            <div class="card-icon">☁️</div>
-            <h3>Cloud Host</h3>
-            <p>AWS EC2 Server</p>
+            <div class="card-icon">☸️</div>
+            <h3>Orchestration</h3>
+            <p>Kubernetes Managed</p>
         </div>
 
         <div class="card">
-            <div class="card-icon">🔄</div>
-            <h3>Automation</h3>
-            <p>GitHub Actions Pipeline</p>
+            <div class="card-icon">🐙</div>
+            <h3>GitOps Sync</h3>
+            <p>ArgoCD Automatic Delivery</p>
         </div>
     </div>
 
@@ -70,7 +70,7 @@ function showStatus() {
     setTimeout(() => {
         btn.classList.remove("loading");
         statusText.classList.add("success");
-        statusText.innerHTML = "✨ v1.0.0: All systems nominal. Service running successfully!";
+        statusText.innerHTML = "✨ v2.0.0: Orchestration active. Kubernetes & ArgoCD sync running successfully!";
     }, 1200);
 }
 </script>
