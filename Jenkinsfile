@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "node-app"
+        IMAGE_NAME = "my-node-app"
         DOCKER_USER = "hritikraj8804"   // your dockerhub username
         TAG = "${BUILD_NUMBER}"
     }
