@@ -37,3 +37,12 @@ spec:
             name: my-node-app-active-service
             port:
               number: 80
+  - http:
+      paths:
+      - path: /preview
+        pathType: Prefix
+        backend:
+          service:
+            name: my-node-app-preview-service
+            port:
+              number: 80
