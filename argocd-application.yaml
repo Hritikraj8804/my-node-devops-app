@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/Hritikraj8804/my-node-devops-app.git'
     targetRevision: main
-    path: k8s
+    path: blue-green-deployment
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default

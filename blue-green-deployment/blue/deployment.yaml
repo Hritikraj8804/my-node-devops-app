@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-node-app-blue
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-node-app
+      color: blue
+  template:
+    metadata:
+      labels:
+        app: my-node-app
+        color: blue
+    spec:
+      containers:
+      - name: my-node-app
+        image: hritikraj8804/my-node-app:v1
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "50m"
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
