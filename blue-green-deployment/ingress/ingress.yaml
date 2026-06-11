@@ -18,6 +18,7 @@ spec:
             name: my-node-app-active-service
             port:
               number: 80
+
   - host: preview.app.local
     http:
       paths:
@@ -28,15 +29,7 @@ spec:
             name: my-node-app-preview-service
             port:
               number: 80
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: my-node-app-active-service
-            port:
-              number: 80
+
   - http:
       paths:
       - path: /preview
@@ -44,5 +37,13 @@ spec:
         backend:
           service:
             name: my-node-app-preview-service
+            port:
+              number: 80
+
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-node-app-active-service
             port:
               number: 80
